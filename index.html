@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav-bar">
+        <h1>Virtual Lab</h1>
+      </div>
+    </header>
+    <section class="container">
+      <h1>Modulation Signal Visualization</h1>
+      <form method="post" class="input-section">
+        <div class="input-group">
+          <label>Message Frequency:</label>
+          <input
+            type="number"
+            name="messageFrequency"
+            value=""
+            step="0.1"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Message Amplitude:</label>
+          <input
+            type="number"
+            name="messageAmplitude"
+            value=""
+            step="0.1"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Message Waveform:</label>
+          <select name="messageWaveform">
+            <option value="sine">Sine</option>
+            <option value="cos">Cos</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Carrier Frequency:</label>
+          <input
+            type="number"
+            name="carrierFrequency"
+            value=""
+            step="0.1"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Carrier Amplitude:</label>
+          <input
+            type="number"
+            name="carrierAmplitude"
+            value=""
+            step="0.1"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Carrier Waveform:</label>
+          <select name="carrierWaveform">
+            <option value="sine">Sine</option>
+            <option value="cos">Cos</option>
+          </select>
+        </div>
+
+        <label>Modulation Type:</label>
+        <select id="modulationType" name="modulationType">
+          <option value="AM">AM</option>
+          <option value="FM">FM</option>
+          <option value="PM">PM</option></select
+        ><br />
+
+        <button class="submit" type="submit">Generate</button>
+      </form>
+
+      {% if img_path %}
+      <h3>Output Wave:</h3>
+      <img src="{{ img_path }}" width="600" />
+      {% endif %}
+    </section>
+  </body>
+</html>
